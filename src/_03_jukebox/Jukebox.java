@@ -5,6 +5,8 @@ package _03_jukebox;
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -12,7 +14,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -20,11 +25,28 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /*   If you don't have javazoom.jar in your project, you can download it from here: http://bit.ly/javazoom
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
-
-    public void run() {
+public class Jukebox implements Runnable, ActionListener {
+	Song s = new Song("uhOh.mp3");
+	Song s1 = new Song("timeLapse.mp3");
+	JButton button = new JButton("uh oh stinky lofi hip hop");
+	JButton ela = new JButton("timeLapse.mp3");
+	JButton nokk = new JButton();
+	public void showButton() {
+        JFrame frame = new JFrame();
+        frame.setVisible(true);
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        panel.add(button);       
+        panel.add(ela);
+        ela.addActionListener(this);
+        panel.add(nokk);
+        button.addActionListener(this);
+        frame.pack();
+        nokk.addActionListener(this);} 
+        public void run() {
 
 		// 1. Find an mp3 on your computer or on the Internet.
+    	
 		// 2. Create a Song object for that mp3
 
 		// 3. Play the Song
@@ -44,6 +66,17 @@ public class Jukebox implements Runnable {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button) {
+			s.play();
+		}
+		if(e.getSource() == ela) {
+			s1.play();
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }

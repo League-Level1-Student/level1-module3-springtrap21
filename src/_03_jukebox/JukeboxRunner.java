@@ -4,10 +4,15 @@ package _03_jukebox;
  *    Level 1
  */
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class JukeboxRunner {
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Jukebox());
-	}
+
+	public static void main(String[] args) {		
+		new Jukebox().showButton();
+		
+				
+}
 }
