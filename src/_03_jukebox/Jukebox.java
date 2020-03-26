@@ -28,9 +28,10 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 public class Jukebox implements Runnable, ActionListener {
 	Song s = new Song("uhOh.mp3");
 	Song s1 = new Song("timeLapse.mp3");
-	JButton button = new JButton("uh oh stinky lofi hip hop");
-	JButton ela = new JButton("timeLapse.mp3");
-	JButton nokk = new JButton();
+	Song s2 = new Song("SweetHomeAlabama.mp3");
+	JButton button = new JButton("Today's Special");
+	JButton ela = new JButton("timeLapse");
+	JButton nokk = new JButton("SweetHomeAlabama");
 	public void showButton() {
         JFrame frame = new JFrame();
         frame.setVisible(true);
@@ -70,11 +71,21 @@ public class Jukebox implements Runnable, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {
-			s.play();
+			s2.stop();
+			s1.stop();
+			s.play();	
 		}
 		if(e.getSource() == ela) {
+			s.stop();
+			s2.stop();
 			s1.play();
 		}
+		if(e.getSource() == nokk) {
+			s.stop();
+			s1.stop();
+			s2.play();
+		}
+		
 		// TODO Auto-generated method stub
 		
 	}

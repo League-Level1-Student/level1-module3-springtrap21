@@ -11,8 +11,6 @@ import javax.swing.SwingUtilities;
 public class JukeboxRunner {
 
 	public static void main(String[] args) {		
-		new Jukebox().showButton();
-		
-				
+		new Jukebox().showButton();				
 }
 }
