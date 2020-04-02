@@ -11,14 +11,16 @@ import javax.swing.JApplet;
 public class CowTimer {
 
 	/* 1. Make a constructor for the CowTimer class that initializes the minutes variable */
-	
+	CowTimer(){
+		minutes = 1;
+	}
 	/* 4. Complete the main method of the CowTimerRunner class */
-
+	
 	private int minutes;
 
 	public void setTime(int minutes) {
 		this.minutes = minutes;
-		System.out.println("Cow time set to " + minutes + " minutes.");
+		System.out.println("Cow time set to " + minutes + " seconds.");
 	}
 
 	public void start() throws InterruptedException {
@@ -26,13 +28,15 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for the number of minutes
 		 * using Thread.sleep(int milliseconds). 
 		 */
-
+		for (int i = minutes; i > 0; i--) {
+			//Thread.sleep(1000);
+		}
 		/*
-		 * 3. When the timer is finished, use the playSound method to play a moo sound.
+		 * 3. When the timer is finished, use the playSound method to play a Moo sound.
 		 * You can use the .wav file in the default package, or you can download one
-		 * from freesound.org, then drag it intothe default package.
+		 * from freesound.org, then drag it into the default package.
 		 */
-
+		playSound("moo.wav");
 	}
 
 	private void playSound(String fileName) {

@@ -8,6 +8,18 @@ public static void main(String[] args) {
 	Movie P = new Movie("Lion King(Live Action)", 2);
 	Movie Q = new Movie("Hacksaw Ridge", 5);
 	System.out.println(M.getTicketPrice());
-	
+	System.out.println(N.getTicketPrice());
+	System.out.println(O.getTicketPrice());
+	System.out.println(P.getTicketPrice());
+	System.out.println(Q.getTicketPrice());
+	NetflixQueue R = new NetflixQueue();
+	R.addMovie(M);
+	R.addMovie(N);
+	R.addMovie(O);
+	R.addMovie(P);
+	R.addMovie(Q);
+	R.printMovies();
+	System.out.println("The best movie is . . . " + M);
+	System.out.println("The second best movie is. . . " + Q);
 }
 }
